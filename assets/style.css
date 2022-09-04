@@ -44,3 +44,14 @@ p {
 .bar:hover {
   color:#243A4D
 }
+
+.foot {
+  border-style:solid;
+  border: 2px solid #17102E;
+  border-top-color: #262563;
+
+.bart {
+  font-family: helvetica;
+  font-size:15px;
+  color:#ffffff
+}
