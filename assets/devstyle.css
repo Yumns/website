@@ -1,0 +1,21 @@
+@font-face {
+  font-family: itcag;
+  src: url(./fonts/ITCAvantGardeStd-DemiCn.otf)
+}
+
+column {
+  border-radius: 12px;
+  background-color: #efe9dc;
+}
+
+body {
+  background-color: #F6F3EC;
+}
+
+h3.ben {
+  color: #E38648;
+}
+
+.benp {
+  color: #2B2A29;
+}
