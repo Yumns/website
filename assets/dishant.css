@@ -1,0 +1,68 @@
+body {
+  background-color:#36393f;
+}
+
+@font-face {
+  font-family: playfairdisplay;
+  src: url(./fonts/PlayfairDisplay-SemiBold.ttf)
+}
+
+@font-face {
+  font-family: lato;
+  src: url(./fonts/Lato-Regular.ttf)
+}
+
+h1 {
+  font-family: playfairdisplay;
+  color: #FFFFFF;
+}
+
+p {
+  color: #D3DCDE;
+}
+
+.bord {
+  border: 2px solid #262563;
+  border-radius:40px;
+}
+
+.port {
+  background-color: #16174D;
+}
+
+.porth5 {
+  color:"#FFFFFF";
+}
+
+.navb {
+  border-style:solid;
+  border: 2px solid #17102E;
+  border-bottom-color: #262563;
+}
+
+p {
+  font-family: lato;
+  font-size: 20px
+}
+
+.bar {
+  font-family: lato;
+  font-size:20px;
+  color:#ffffff
+}
+
+.bar:hover {
+  color:#243A4D
+}
+
+.foot {
+  border-style:solid;
+  border: 2px solid #17102E;
+  border-top-color: #262563;
+}
+
+.bart {
+  font-family: lato;
+  font-size:15px;
+  color:#ffffff
+}
