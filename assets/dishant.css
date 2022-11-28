@@ -22,12 +22,12 @@ p {
 }
 
 .bord {
-  border: 2px solid #262563;
+  border: 2px solid #36393f;
   border-radius:40px;
 }
 
 .port {
-  background-color: #16174D;
+  background-color: #36393f;
 }
 
 .porth5 {
@@ -36,8 +36,8 @@ p {
 
 .navb {
   border-style:solid;
-  border: 2px solid #17102E;
-  border-bottom-color: #262563;
+  border: 2px solid #36393f;
+  border-bottom-color: #36393f;
 }
 
 p {
@@ -57,8 +57,8 @@ p {
 
 .foot {
   border-style:solid;
-  border: 2px solid #17102E;
-  border-top-color: #262563;
+  border: 0px solid #36393f;
+  border-top-color: #36393f;
 }
 
 .bart {
