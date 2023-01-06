@@ -3,6 +3,7 @@ button {
     border-color: #FFFFFF;
     border: none;
     border-radius: 8px;
+    padding: 3%;
 }
 
 button:hover {
@@ -15,4 +16,28 @@ button:hover {
 .disabled {
     opacity: 0.6;
     cursor: not-allowed;
+}
+
+button:disabled {
+    background-color: #D6d6d6;
+    border-color: #FFFFFF;
+    border-radius: 8px;
+    color: gray;
+}
+
+input {
+    border-radius: 8px;
+    border-color: gray;
+    border-style: solid;
+    border-width: 1px;
+}
+
+textarea {
+    border-radius: 8px;
+    border-color: gray;
+    border-style: solid;
+}
+
+.nopad {
+    padding: 0px;
 }

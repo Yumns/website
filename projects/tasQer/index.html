@@ -1,68 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>tasQer</title>
-    <link rel="icon" type="image/x-icon" href="favicon.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link href="style.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>tasQer</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="container p-5 align-items-center justify-content-center">
-        <div class="row d-flex align-items-center justify-content-center">
-            <div class="col-md-8 col-sm-12 align-items-center">
-            <img src="edited.png" width="100%">
-                <div class="row">
-                    <div class="col-3"><input placeholder="task" id="taskIn" type="text" minlength="1" /></div>
-                    <div class="col-3"><input placeholder="time" id="timeIn" type="number" required="required" /></div>
-                    <div class="col-2"><button type="submit" onclick="addTask()" class="mb-5">Add task</button></div>
-                    <div class="col-2"><div id="timeTotal" class="d-flex">Time: 0</div></div>
-                    <div class="col-2"><div id="taskTotal" class="d-flex">Tasks: 0</div></div>
-                </div>
-            </div>
-            <div id="output" class="col-md-8 col-sm-12">
-                <div class="row">
-                    <div class="col-1"><h4 style="text-align: center">Task</h4></div>
-                    <div class="col-6"><h4 style="text-align: center">Summary</h4></div>
-                    <div class="col-3"><h4 style="text-align: center">Time</h4></div>
-                </div>
-            </div>
+  <div class="container p-5 align-items-center justify-content-center">
+    <div class="row d-flex align-items-center justify-content-center">
+      <div class="col-md-8 col-sm-12 align-items-center">
+        <a href="https://yumns.github.io"><img src="edited.png" width="100%"></a>
+        <div class="row mb-4">
+          <div class="col-3 px-2"><input placeholder="task" id="taskIn" type="text" required="required" /></div>
+          <div class="col-3 px-2"><input placeholder="time" id="timeIn" type="number" required="required" /></div>
+          <div class="col-3"><button type="button" onclick="addTask()">Add task</button><button class="mx-2"
+              type="button" onclick="resetTasks()">Reset list</button></div>
+          <div class="col-1 nopad">
+            <div id="timeTotal">Time: 0</div>
+          </div>
+          <div class="col-1 nopad">
+            <div id="taskTotal">Tasks: 0</div>
+          </div>
         </div>
+      </div>
+      <div class="col-md-8 col-sm-12">
+        <div class="row">
+          <div class="col-1">
+            <h4 style="text-align: center">Task</h4>
+          </div>
+          <div class="col-4">
+            <h4 style="text-align: center">Summary</h4>
+          </div>
+          <div class="col-2">
+            <h4 style="text-align: center">Time</h4>
+          </div>
+          <div class="col-3"><button type="button" onclick="downloadTasks()">Export</button><button type="button"
+              class="mx-2" data-bs-toggle="modal" data-bs-target="#importModal">Import</button></div>
+          <div class="col-2"><a id="DLtasks" href=""></a></div>
+        </div>
+      </div>
+      <div id="output" class="col-md-8 col-sm-12"></div>
     </div>
-    <script>
-        let tasks = 0;
-        let time = 0;
-        let taskList = []
-        function addTask() {
-            let taskObject = {time: time,  desc: "", id: tasks};
-            taskObject.time = Number(document.getElementById('timeIn').value);
-            time += Math.round(Number(document.getElementById('timeIn').value) * 100) / 100;
-            tasks += 1;
-            taskObject.id = tasks;
-            taskObject.desc = document.getElementById('taskIn').value.toString();
-            taskList.push(taskObject);
-            document.getElementById('timeTotal').innerHTML = `Time: ${time}`;
-            document.getElementById('taskTotal').innerHTML = `Tasks: ${tasks}`;
-            document.getElementById('output').innerHTML += `
-                <div id=${taskObject.id} class="row">
-                    <div class='col-1' style="text-align: right">${taskObject.id}.</div>
-                    <div class="col-6">${taskObject.desc}</div>
-                    <div id="${taskObject.id}time" class="col-3">${taskObject.time}</div>
-                    <div class="col-1"><button id="button${taskObject.id}" onclick="removeTask(this.id)">Complete</button></div>
-                </div>
-                `
-        }
-        function removeTask(clicked_id) {
-            let taskchanger = (Number(document.getElementById('taskTotal').innerHTML.replace("Tasks: ", "")) - 1)
-            document.getElementById(String(clicked_id.replace("button", ""))).style.textDecoration = "line-through";
-            document.getElementById(clicked_id).disabled = "true";
-            document.getElementById(clicked_id).innerHTML = "Completed";
-            document.getElementById('taskTotal').innerHTML = `Tasks: ${taskchanger}`;
-            time -= Number(document.getElementById(String(clicked_id.replace("button", "")) + "time").innerHTML);
-            document.getElementById('timeTotal').innerHTML = `Time: ${time}`;
-        }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </div>
+  <div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Import Tasks</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input class="mb-1" type="file" id="fileIn" size="10">
+          <input type="text" style="padding-bottom: 3px; padding-top: 3px;" id="titleIn" placeholder="Title" size="13">
+          <textarea id="textIn" cols="52"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="importTasks()">Import</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="tasQer.js"></script>
+  <script src="FileReader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
