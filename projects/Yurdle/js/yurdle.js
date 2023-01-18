@@ -31,12 +31,30 @@ function randomInteger(pMin = 0, pMax = 2315) {
     return Math.floor(Math.random() * (pMax + 1 - pMin) + pMin);
 }
 
+async function delChar() {
+  let lettersArray = document.getElementById("wordIn").value.split("");
+        /*while (lettersArray.length < 6 && lettersArray.length !== 0) {
+            lettersArray[lettersArray.length] = " ";
+        }*/
+        if (lettersArray.length === 0) {
+          alert("There is no word in the text field!");
+          return;
+        }
+        for (i in lettersArray) {
+            document.getElementById(`${turn}-${i}`).innerHTML = lettersArray[i];
+        }
+}
+
 async function lettersIn() {
     while (1===1) {
         let lettersArray = document.getElementById("wordIn").value.split("");
         /*while (lettersArray.length < 6 && lettersArray.length !== 0) {
             lettersArray[lettersArray.length] = " ";
         }*/
+        if (lettersArray.length > 5) {
+          alert("Word length is limited to 5 letters!");
+          return;
+        }
         for (i in lettersArray) {
             document.getElementById(`${turn}-${i}`).innerHTML = lettersArray[i];
         }
