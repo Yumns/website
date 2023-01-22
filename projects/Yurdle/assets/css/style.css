@@ -14,7 +14,9 @@ input {
     box-shadow: inset 2px 5px 10px 0 rgba(0, 0, 0, 0.25);
     text-align: left;
     border: 1px solid #FFFFFF;
-    padding: 4vw;
+    padding: 0.02vh 0.7vh;
+    max-width: 80vw;
+    max-height: 40vh;
     border-radius: 8px;
 }
 
@@ -34,6 +36,18 @@ button {
     min-height: 0.5vh;
     border-radius: 8px;
     font-size: 2vh;
-    margin: 0.25vh;
+    margin: 0.2vh;
     background-color: white;
+}
+
+.bigkey {
+    box-shadow: 2px 5px 10px 0 rgba(0, 0, 0, 0.25);
+    text-align: center;
+    /*border: 1px solid rgba(0, 0, 0, 0.5);*/
+    padding: 0.7vh;
+    min-height: 0.5vh;
+    border-radius: 8px;
+    font-size: 2vh;
+    margin: 0.25vh;
+    background-color: lightgray;
 }

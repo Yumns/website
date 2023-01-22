@@ -8,20 +8,27 @@ let allwords = []
 
 const sleep = time => new Promise(res => setTimeout(res, time, "done sleeping"));
 function getWord() {
-    turn = 1;
     /*fetch('https://gist.githubusercontent.com/mrhead/f0ced2726394588e8d9863e0568b6473/raw/89e48277775f30e60ff60592d6e3d4acfe733e10/wordle.json')
         .then((response) => response.json())
         .then(function(data) {
             allwords = JSON.parse(data)
             console.log(allwords)
         })*/
-    word = words[randomInteger()].split("");
-    lettersIn()
+    word = words[randomInteger()].split("")
 }
 
-function keyIn(clicked_id) {
-    document.getElementById("wordIn").value += String(clicked_id);
-    lettersIn();
+async function lettersIn() {
+    while (1===1) {
+        let lettersArray = document.getElementById("wordIn").value.split("");
+        /*while (lettersArray.length < 6 && lettersArray.length !== 0) {
+            lettersArray[lettersArray.length] = " ";
+        } Y ISNT THISWORKING*/
+        for (i in lettersArray) {
+            document.getElementById(`${turn}-${i}`).innerHTML = lettersArray[i];
+            console.log(turn + "lettersin")
+        }
+        await sleep(25)
+    }
 }
 
 function randomInteger(pMin = 0, pMax = 2315) {
@@ -31,41 +38,12 @@ function randomInteger(pMin = 0, pMax = 2315) {
     return Math.floor(Math.random() * (pMax + 1 - pMin) + pMin);
 }
 
-async function delChar() {
-  let lettersArray = document.getElementById("wordIn").value.split("");
-        /*while (lettersArray.length < 6 && lettersArray.length !== 0) {
-            lettersArray[lettersArray.length] = " ";
-        }*/
-        if (lettersArray.length === 0) {
-          alert("There is no word in the text field!");
-          return;
-        }
-        for (i in lettersArray) {
-            document.getElementById(`${turn}-${i}`).innerHTML = lettersArray[i];
-        }
-}
-
-async function lettersIn() {
-    while (1===1) {
-        let lettersArray = document.getElementById("wordIn").value.split("");
-        /*while (lettersArray.length < 6 && lettersArray.length !== 0) {
-            lettersArray[lettersArray.length] = " ";
-        }*/
-        if (lettersArray.length > 5) {
-          alert("Word length is limited to 5 letters!");
-          return;
-        }
-        for (i in lettersArray) {
-            document.getElementById(`${turn}-${i}`).innerHTML = lettersArray[i];
-        }
-        await sleep(25)
-    }
-}
 
 function wordIn() {
     if (document.getElementById("wordIn").value.length < 5) {
         alert("word must be 5 letters");
     } else {
+        console.log(turn + "wordinit")
         fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${document.getElementById("wordIn").value}`)
             .then((response) => response.json())
             .then(async function(data) {
@@ -76,9 +54,11 @@ function wordIn() {
                     input = document.getElementById("wordIn").value.split("");
                     document.getElementById("wordIn").value = "";
                     for (i in input) {
+                        console.log(turn + "input")
                         await sleep(50);
                         if (input[i] === word[i]) {
                             document.getElementById(`${turn}-${i}`).innerHTML = input[i];
+                            console.log(`${turn}-${i} loop`)
                             document.getElementById(`${turn}-${i}`).style.backgroundColor = "#9ee09e";
                             document.getElementById(input[i]).style.backgroundColor = "#9ee09e";
                         } else if (word.includes(input[i])) {
@@ -97,58 +77,37 @@ function wordIn() {
                         document.getElementById("winsOut").innerHTML = wins;
                         document.getElementById("winstreakOut").innerHTML = winStreak;
                         await clearBoard();
-                        return;
                     } else if (turn === 6 && input.toString() !== word.toString()) {
                         winStreak = 0;
                         document.getElementById("winstreakOut").innerHTML = winStreak;
                         alert(`The word was ${String(word).replaceAll(",", "")}!`);
                         await clearBoard();
-                        return;
                     }
                     turn += 1;
-                    console.log("break")
+                    console.log("breakpoint here")
                 }
             })
     }
 }
 
 async function clearBoard() {
-    let squaresCleared = 0;
-    let squareOrder = 4;
-    let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    await sleep(1000);
+    let squaresCleared = 0
+    let squareOrder = 4
+    turn -= 1
+    await sleep(1000)
     while (squaresCleared < 31 && turn > 0) {
-        document.getElementById(turn + "-" + squareOrder).innerHTML = " ";
-        document.getElementById(turn + "-" + squareOrder).style.backgroundColor = "white";
-        await sleep(50);
-        squaresCleared += 1;
-        squareOrder -= 1;
+        document.getElementById(turn + "-" + squareOrder).innerHTML = " "
+        document.getElementById(turn + "-" + squareOrder).style.backgroundColor = "white"
+        await sleep(100)
+        squaresCleared += 1
+        squareOrder -= 1
         if (squareOrder === -1) {
-            squareOrder = 4;
-            turn -= 1;
+            squareOrder = 4
+            turn -= 1
         }
     }
-    for (i in alphabet) {
-        document.getElementById(alphabet[i]).style.backgroundColor = "white";
-    }
-    await sleep(100)
-    for (i in alphabet) {
-        document.getElementById(alphabet[i]).style.backgroundColor = "lightgray";
-    }
-    await sleep(100)
-    for (i in alphabet) {
-        document.getElementById(alphabet[i]).style.backgroundColor = "white";
-    }
-    await sleep(100)
-    for (i in alphabet) {
-        document.getElementById(alphabet[i]).style.backgroundColor = "lightgray";
-    }
-    await sleep(100)
-    for (i in alphabet) {
-        document.getElementById(alphabet[i]).style.backgroundColor = "white";
-    }
-    turn = 1;
-    getWord();
+    turn = 1
+    getWord()
 }
 
 var words = [
