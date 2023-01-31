@@ -26,15 +26,41 @@ p {
   border-radius:40px;
 }
 
-.port {
+.card {
   background-color: #16174D;
+  min-height: 40vh;
 }
 
-.porth5 {
-  color:"#FFFFFF";
+.card-body > .row {
+  align-items: center;
+  justify-content: center;
 }
 
-.navb {
+.card-body > .row > img {
+  min-height:5vh ;
+  max-height:15vh;
+  border-radius: 12px;
+  width:auto;
+}
+
+.card-body > a > img {
+  max-height:15vh;
+  border-radius: 12px;
+  width:auto;
+}
+
+.card-body > h5 {
+  text-align: center;
+  color:#FFFFFF;
+  font-size: 2vh;
+}
+
+.card-body > p {
+  font-size: 1.5vh;
+  margin-bottom: auto;
+}
+
+header {
   border-style:solid;
   border: 2px solid #17102E;
   border-bottom-color: #262563;
@@ -45,7 +71,7 @@ p {
   font-size: 20px
 }
 
-.bar {
+.nav-link {
   font-family: lato;
   font-size:20px;
   color:#ffffff
@@ -55,14 +81,16 @@ p {
   color:#243A4D
 }
 
-.foot {
+footer {
   border-style:solid;
   border: 2px solid #17102E;
   border-top-color: #262563;
 }
 
-.bart {
-  font-family: lato;
-  font-size:15px;
-  color:#ffffff
+card {
+  max-height: 2vh
+}
+
+card > img {
+  max-height:10vh
 }
