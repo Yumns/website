@@ -3,6 +3,23 @@ let time = 0;
 let taskList = []
 let taskchanger = 0
 
+function listenerEnter() {
+    let taskField = document.getElementById("taskIn");
+    taskField.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("addTask").click();
+        }
+    });
+    let timeField = document.getElementById("timeIn");
+    timeField.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("addTask").click();
+        }
+    });
+}
+
 function addTask() {
     let tasksadded = 1;
     let tasksOut;
@@ -13,7 +30,6 @@ function addTask() {
         tasksOut = ""
         taskObject.time = Number(document.getElementById('timeIn').value);
         time += Math.round(Number(document.getElementById('timeIn').value) * 100) / 100;
-        console.log(time);
         tasks += 1;
         taskObject.id = tasks;
         taskObject.desc = document.getElementById('taskIn').value.toString();
@@ -38,7 +54,6 @@ function addTask() {
         alert(tasksOut)*/
 
         document.getElementById('output').innerHTML
-        console.log(taskList)
     }
 }
 

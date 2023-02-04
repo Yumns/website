@@ -63,3 +63,11 @@ button[id^="complete"], button[id^="remove"] {
 p {
     color: #FFFFFF;
 }
+
+.row > button > span {
+    margin-top: 5px;
+}
+
+div[style*="line-through"] > p {
+    text-decoration: line-through white;
+}
