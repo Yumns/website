@@ -6,12 +6,40 @@ let resetTurn = 0
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
+function enterListener() {
+    let taskField = document.getElementById("taskIn");
+    taskField.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("addTask").click();
+        }
+    });
+    let timeField = document.getElementById("timeIn");
+    timeField.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("addTask").click();
+        }
+    });
+}
+
+
 function addTask() {
-    let taskObject = {summary:document.getElementById("taskIn").value.toString(), id:tasks, time:Number(document.getElementById("timeIn").value), status:"incomplete"};
-    time += Number(taskObject.time);
-    tasks ++;
-    allTasks.push(taskObject);
-    displayTasks();
+    if (document.getElementById("taskIn").value === "" || document.getElementById("timeIn").value.toString() === "") {
+        console.log()
+        alert("Please enter any missing values!")
+    } else {
+        let taskObject = {
+            summary: document.getElementById("taskIn").value.toString(),
+            id: tasks,
+            time: Number(document.getElementById("timeIn").value),
+            status: "incomplete"
+        };
+        time += Number(taskObject.time);
+        tasks++;
+        allTasks.push(taskObject);
+        displayTasks();
+    }
 }
 
 function displayTasks() {
