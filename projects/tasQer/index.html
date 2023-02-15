@@ -2,65 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>tasQer 2.0</title>
-    <link rel="icon" type="image/x-icon" href="ms.png">
+    <title>tasQer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link href="styles2.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
-<body onload="listenerEnter()">
-<div class="p-5">
-    <div class="row align-items-center justify-content-center">
-        <div class="col-lg-6 col-md-10 col-sm-12 container shadow-lg my-5 nopadding">
-            <div class="group row">
-                <h1 class="col-10 pb-2">tasQer</h1>
-                <span class="col-2 material-icons-sharp">close</span>
-            </div>
-            <div class="row" style="background-color: #e1e1e1; padding-top: 1%">
-                <div class="col-3">
-                    <h4 class="d-inline" id="taskTotal">0</h4><h4 class="d-inline"> Tasks</h4>
-                </div>
-                <div class="col-3">
-                    <h4 style="text-align:left;">Summary</h4>
-                </div>
-                <div class="col-4">
-                    <h4 class="d-inline">Time: </h4><h4 class="d-inline" id="timeTotal">0</h4>
-                </div>
-                <div class="col-2 row">
-                    <div class="col-6 nopadding row"><button class="d-inline" type="button" onclick="downloadTasks()"><span class="material-icons-sharp">file_download</span></button></div>
-                    <div class="col-6 nopadding row"><button class="d-inline" type="button" data-bs-toggle="modal" data-bs-target="#importModal"><span class="material-icons-sharp">file_upload</span></button></div>
-                </div>
-                <div onclick="deleteSelf()"><a id="DLtasks" href=""></a></div>
-            </div>
-            <div id="output">
+<body onload="displayTasks()">
 
+<div class="row align-items-center justify-content-center pt-5 mt-5">
+    <div class="container col-lg-8 col-md-10 col-sm-12 p-0">
+        <div class="row p-0 m-0">
+            <h1 class="col-10 pb-2">tasQer</h1>
+            <a class="col-2" href="https://yumns.github.io#prj"><span style="font-size:400%" class="material-icons-sharp">close</span></a>
+        </div>
+        <div class="row align-items-center justify-content-center px-2">
+            <div class="group row col-2">
+                <h3 class="col-3" id="tasksOut"></h3>
+                <h3 class="col-9">Tasks</h3>
             </div>
-
-            <div class="row justify-content-center">
-                <div class="col-8 row"><input placeholder="task" id="taskIn" type="text" required="required"></div>
-                <div class="col-2 row"><input placeholder="time" id="timeIn" type="number" required="required" size="4">
-                </div>
-                <div class="col-1 row">
-                    <button id="addTask" type="button" onclick="addTask()"><span class="material-icons-sharp">add</span></button>
-                </div>
-                <div class="col-1 row">
-                    <button type="button" onclick="resetTasks()"><span class="material-icons-sharp">restart_alt</span></button>
-                </div>
+            <div class="group col-5">
+                <h3>Summary</h3>
+            </div>
+            <div class="group row col-3">
+                <h3 class="col-5">Time: </h3>
+                <h3 class="col-7" id="timeOut"></h3>
+            </div>
+            <div class="row col-2">
+                <button data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Sort alphabetically" class="col-2" type="button" onclick="sortAlphabeticallyTasks()"><span class="material-icons-sharp">sort</span></button>
+                <button data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Sort by length" class="col-2" type="button" onclick="sortTimeTasks()"><span class="material-icons-sharp">history</span></button>
+                <button data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Reverse order" class="col-2" type="button" onclick="reverseTasks()"><span class="material-icons-sharp">swap_vert</span></button>
+                <button data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Mark all as complete/incomplete" class="col-2" type="button" id="completeAll" onclick="completeAllTasks()"><span class="material-icons-sharp">check_box</span></button>
+                <button data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Download tasklist" class="col-2" type="button" onclick="save()"><span class="material-icons-sharp">download</span></button>
+                <button class="col-2" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal"><span class="material-icons-sharp">upload</span></button>
+            </div>
+            <div onclick="deleteSelf()"><a id="DLtasks" href=""></a></div>
+        </div>
+        <div id="display"></div>
+        <div class="row justify-content-center p-0 m-0">
+            <div class="col-8 row"><input placeholder="task" id="taskIn" type="text" required="required"></div>
+            <div class="col-2 row"><input placeholder="time" id="timeIn" type="number" min="0" required="required" size="4">
+            </div>
+            <div class="col-1 row">
+                <button id="addTask" type="button" onclick="addTask()"><span class="material-icons-sharp">add</span></button>
+            </div>
+            <div class="col-1 row">
+                <button type="button" onclick="resetTasks()"><span class="material-icons-sharp">restart_alt</span></button>
             </div>
         </div>
     </div>
 </div>
-<div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<pre style="visibility: hidden" id="displaytest"></pre>
+
+<!-- Button trigger modal -->
+<!--button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal">
+    Launch demo modal
+</button-->
+<!-- Modal -->
+<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Import Tasks</h1>
+                <h1 class="modal-title fs-5" id="uploadModalLabel">Import Tasks</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -76,10 +83,10 @@
         </div>
     </div>
 </div>
-<script src="tasQer2.js"></script>
-<script src="FileReader.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
+<!--form name="myform">
+    <input type="button" onClick="save();" value="Save">
+</form-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script src="tasQer3.js"></script>
 </body>
 </html>

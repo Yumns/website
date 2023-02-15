@@ -18,12 +18,20 @@ h1 {
     background-color: #8783f7;
 }
 
-body > div.p-5 > div > div > div.group.row > span {
+body > div.p-5 > div > div > div.group.row > a > span {
     text-align: center;
     font-size: 400%;
-    background-color: #8278f2;
+    color:black
 }
-
+body > div.p-5 > div > div > div.group.row > a {
+    margin: 0;
+    padding: 0;
+    background-color: #8278f2;
+    text-align:center
+}
+a >span:hover {
+    text-decoration: underline black;
+}
 .nopadding {
     padding: 0;
 }
@@ -88,4 +96,7 @@ body > div.p-5 > div > div > div.row.justify-content-center > div:nth-child(3) >
 button[id^="complete"], button[id^="remove"] {
     background-color: transparent;
     border-width: 0;
+}
+body > div.p-5 > div > div > div:nth-child(2) > div.col-2.row > div:nth-child(1) > button > span, body > div.p-5 > div > div > div:nth-child(2) > div.col-2.row > div:nth-child(2) > button > span, #addTask > span, body > div.p-5 > div > div > div.row.justify-content-center > div:nth-child(4) > button > span {
+    margin-top: 8px;
 }
