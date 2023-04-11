@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "kenjo";
+    src: url("kenjo.ttf") format("truetype");
+}
+
+body {
+    background-color: #fff6eb;
+    padding-top: 20px;
+}
+
+h1,h4 {
+    font-family: kenjo;
+    text-align: center;
+}
+
+h1 {
+
+}
+
+.nav-link::after {
+    content: '';
+    width: 0px;
+    height: 1px;
+    display: block;
+    background: black;
+    transition: 300ms ease-out;
+}
+
+.nav-link:hover::after {
+    width:100%
+}
+
+.nav-link {
+    font-family: sans-serif;
+    color: black;
+}
+
+p {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.container {
+    border-radius: 24px;
+    box-shadow: 10px 10px 10px #dcd4cb;
+    padding: 2.5%;
+    background-image: url("https://media.istockphoto.com/id/1364276057/vector/vector-seamless-pattern-with-cookies-colorful.jpg?s=612x612&w=0&k=20&c=NlpZaZo_YcZwLmmhlLbYhQIQHf8AD3MrnM-QwfW9RRI=");
+    background-blend-mode: lighten;
+    background-size: 306px 306px;
+    background-color: rgba(255, 255, 255, 0.88);
+}
+
+tr:nth-child(even) {
+    background-color: rgba(180, 180, 180, 0.38);
+}
+
+tr,th,li {
+   font-family: sans-serif;
+}
+
+th {
+
+}
