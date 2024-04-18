@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="title" content="Yumns' Homepage">
+    <meta name="description"
+          content="This is my personal homepage, with facts about me. Easily accessible from computers with >512K of RAM free and a browser.">
+    <meta name="keywords" content="Yumns, homepage, blog">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Yumns' Homepage</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/chota.min.css">
+    <meta http-equiv="content-type" content="public, max-age=604800">
+    <!-- Primary Meta Tags -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://yumns.github.io/lite/"/>
+    <meta property="og:title" content="Yumns' Homepage"/>
+    <meta property="og:description"
+          content="This is my personal homepage, with facts about me. Easily accessible from computers with >512K of RAM free and a browser."/>
+    <meta property="og:image" content="assets/images/cat-photos/cat0.gif"/>
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:url" content="https://yumns.github.io/lite/"/>
+    <meta property="twitter:title" content="Yumns' Homepage"/>
+    <meta property="twitter:description"
+          content="This is my personal homepage, with facts about me. Easily accessible from computers with >512K of RAM free and a browser."/>
+    <meta property="twitter:image" content="assets/images/cat-photos/cat0.gif"/>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.gif">
+
+    <!-- Meta Tags Generated with https://metatags.io -->
+
+    <style>
+        #projects, #cat, #footer {
+            background-color: aliceblue;
+            padding-top: 2%;
+        }
+
+        @keyframes cat-carousel {
+            0% {
+                content: url("assets/images/cat-photos/cat0.gif") / "Chicken napping on a chair";
+            }
+            20% {
+                content: url("assets/images/cat-photos/cat1.gif") / "Chicken lying under an apple tree";
+            }
+            40% {
+                content: url("assets/images/cat-photos/cat2.gif") / "Chicken sleeping in the garden";
+            }
+            60% {
+                content: url("assets/images/cat-photos/cat3.gif") / "Chicken lying on a carpet";
+            }
+            80% {
+                content: url("assets/images/cat-photos/cat4.gif") / "Chicken resting in a blanket";
+            }
+        }
+
+        .cat-carousel {
+            background-size: cover;
+            animation: cat-carousel 10s infinite;
+
+            &:hover {
+                animation-play-state: paused;
+            }
+        }
+
+        @keyframes album-carousel {
+            0% {
+                content: url("assets/images/albums/because-the-internet.gif");
+            title("Childish Gambino's Because The Internet")
+            }
+            7% {
+                content: url("assets/images/albums/never-enough.gif");
+            title("Daniel Caesar's Never Enough")
+            }
+            14% {
+                content: url("assets/images/albums/graduation.gif");
+            title("Kanye West's Graduation")
+            }
+            21% {
+                content: url("assets/images/albums/late-registration.gif");
+            title("Kanye West's Late Registration")
+            }
+            28% {
+                content: url("assets/images/albums/good-kid-maad-city.gif");
+            title("Kendrick Lamar's Good Kid m.A.A.d City")
+            }
+            35% {
+                content: url("assets/images/albums/ajab-prem-ki-ghazab-kahani.gif");
+            title("Ajab Prem ki Ghazab Kahani")
+            }
+            42% {
+                content: url("assets/images/albums/jab-we-met.gif");
+            title("Jab We Met")
+            }
+            49% {
+                content: url("assets/images/albums/main-hoon-na.gif");
+            title("Main Hoon Na")
+            }
+            56% {
+                content: url("assets/images/albums/pk.gif");
+            title("PK")
+            }
+            63% {
+                content: url("assets/images/albums/om-shanti-om.gif");
+            title("Om Shanti Om")
+            }
+            70% {
+                content: url("assets/images/albums/karz.gif");
+            title("Karz")
+            }
+            77% {
+                content: url("assets/images/albums/minecraft-volume-alpha.gif");
+            title("C418's Minecraft Volume Alpha")
+            }
+            84% {
+                content: url("assets/images/albums/minecraft-volume-beta.gif");
+            title("C418's Minecraft Volume Beta")
+            }
+            91% {
+                content: url("assets/images/albums/the-art-of-ivry-gitlis.gif");
+            title("The Art of Ivry Gitlis")
+            }
+            98% {
+                content: url("assets/images/albums/emil-gilels-beethoven-sonatas.gif");
+            title("Emil Gilels' Pathetique, Clair de Lune, and Moonlight Sonatas")
+            }
+        }
+
+        .album-carousel {
+            background-size: cover;
+            animation: album-carousel 30s infinite;
+
+            &:hover {
+                animation-play-state: paused;
+            }
+        }
+
+        .card > header {
+            text-align: center;
+        }
+
+        .card ~ .card {
+
+        }
+        a {
+            color: blue;
+        }
+    </style>
+</head>
+<body style="justify-content: center;">
+<div class="row is-center">
+    <nav class="nav col-6-lg col-10-md col-12-sm" id="top">
+        <div class="nav-left">
+            <a class="brand" href="#top">
+                <h1>
+                    Yumns
+                </h1>
+            </a>
+        </div>
+        <div class="nav-right">
+            <a href="#about">About</a>
+            <a href="#cat">Cat</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#me">Me</a>
+        </div>
+    </nav>
+</div>
+
+
+<main>
+    <section id="about" class="is-center row">
+        <div class="row is-center col-6-lg col-10-md col-12-sm">
+            <article class="col">
+                <h1 class="text-center">
+                    Hello!
+                </h1>
+                <p>
+                    My name is Yumns. I'm a high school student who enjoys cats, music, biology, and privacy. This
+                    website has been designed with accessibility in mind, with semantic HTML, readability, and
+                    lightweight-ness.
+                </p>
+            </article>
+            <figure class="col text-center">
+                <img loading="eager" src="assets/images/author.gif" alt="A photo of the author" title="The author in Agrasen ki Baoli, Delhi">
+                <figcaption>The author in Agrasen ki Baoli, Delhi</figcaption>
+            </figure>
+        </div>
+    </section>
+    <section id="cat" class="is-center row">
+        <div class="row is-center col-6-lg col-10-md col-12-sm">
+            <figure class="col text-center">
+                <img loading="eager" class="cat-carousel" src="assets/images/cat-photos/cat0.gif"
+                     alt="Picture of the author's cat" title="Picture of the author's cat">
+                <figcaption>
+                    Some pictures of Chicken the cat
+                </figcaption>
+            </figure>
+            <article class="col">
+                <h1>
+                    Chicken the Cat
+                </h1>
+                <p>
+                    We didn't get Chicken like most people get their cats. He used to be our neighborhood stray, eating
+                    what people gave him. When the COVID lockdown happened, we began to spend a lot more time with him.
+                    He started living outside our house all day. Eventually, he ventured indoors and chose us to be his
+                    family. He still roams around outside every day despite being pretty old now.
+                </p>
+            </article>
+        </div>
+    </section>
+    <section id="skills">
+        <h1 class="text-center">
+            My Skills
+        </h1>
+        <br>
+        <div class="is-center">
+            <article class="row is-center col-6-lg col-10-md col-12-sm cardsSameHeight">
+                <div class="card col">
+                    <header>
+                        <h2>HTML/CSS</h2>
+                    </header>
+                    <figure class="is-center">
+                        <img src="assets/images/skills/html-css.gif" alt="The HTML and CSS logos." title="The HTML and CSS logos.">
+                    </figure>
+                    <footer>
+                        <p>
+                            I created this website it HTML and CSS, and tried to reconcile form and accessibility.
+                        </p>
+                    </footer>
+                </div>
+                <div class="card col">
+                    <header>
+                        <h2>Bootstrap</h2>
+                    </header>
+                    <figure class="is-center">
+                        <img src="assets/images/skills/bootstrap.gif" alt="The Bootstrap logo." title="The Bootstrap logo.">
+                    </figure>
+                    <footer>
+                        <p>
+                            I like Bootstrap for its versatility, but here I used <a
+                                href="https://jenil.github.io/chota/" target="_blank">Chota.css</a> for lightness.
+                        </p>
+                    </footer>
+                </div>
+                <div class="card col">
+                    <header>
+                        <h2>JavaScript</h2>
+                    </header>
+                    <figure class="is-center">
+                        <img src="assets/images/skills/javascript.gif" alt="The JavaScript logo." title="The JavaScript logo.">
+                    </figure>
+                    <footer>
+                        <p>
+                            I like JavaScript. I am learning React at the moment. Then I will learn Express.js.
+                        </p>
+                    </footer>
+                </div>
+                <div class="card col">
+                    <header>
+                        <h2>Discord.py</h2>
+                    </header>
+                    <figure class="is-center">
+                        <img src="assets/images/skills/discord-py.gif" alt="The Discord.py logo."title="The Discord.py logo.">
+                    </figure>
+                    <footer>
+                        <p>
+                            My unmaintained <a href="https://top.gg/bot/780971224146640926">discord bot</a>, <a
+                                href="#projects">Nut</a> made with Discord.py, peaked at 40k users.
+                        </p>
+                    </footer>
+                </div>
+            </article>
+        </div>
+    </section>
+    <section id="projects">
+        <h1 class="text-center">
+            My Projects
+        </h1>
+        <br>
+        <div class="is-center">
+            <article class="row is-center col-6-lg col-10-md col-12-sm cardsSameHeight">
+                <div class="card col-6">
+                    <header>
+                        <h2>tasQer</h2>
+                    </header>
+                    <figure class="is-center">
+                        <img src="assets/images/projects/tasQer.gif" alt="The tasQer logo." title="The tasQer logo.">
+                    </figure>
+                    <footer>
+                        <p>
+                            A lightweight task list app that I use to organize my days. I still waste tons of my time.
+                        </p>
+                    </footer>
+                </div>
+                <div class="card col-6">
+                    <header>
+                        <h2>Yurdle</h2>
+                    </header>
+                    <figure class="is-center">
+                        <img src="assets/images/projects/yurdle.gif" alt="A Yurdle game." title="A Yurdle game.">
+                    </figure>
+                    <footer>
+                        <p>
+                            A Wordle clone that I wrote in an hour in January 2023. It has been updated a tiny bit.
+                        </p>
+                    </footer>
+                </div>
+                <div class="card col-6">
+                    <header>
+                        <h2>Nut Bot</h2>
+                    </header>
+                    <figure class="is-center">
+                        <img src="assets/images/projects/nut-bot.gif" alt="The Nut Bot icon." title="The Nut Bot icon.">
+                    </figure>
+                    <footer>
+                        <p>
+                            The Discord.py bot I was talking about earlier. This was my first big programming project.
+                        </p>
+                    </footer>
+                </div>
+                <div class="card col-6">
+                    <header>
+                        <h2>Carousel Maker</h2>
+                    </header>
+                    <figure class="is-center">
+                        <img src="assets/images/projects/bootstrap-carousel-maker.gif"
+                             alt="The carousel maker window." title="The carousel maker window.">
+                    </figure>
+                    <footer>
+                        <p>
+                            Making Bootstrap carousels annoyed me, so I made this (code is embarrassing do not look).
+                        </p>
+                    </footer>
+                </div>
+            </article>
+        </div>
+    </section>
+    <section id="me" class="is-center">
+        <div class="is-center col-6-lg col-10-md col-12-sm">
+            <figure class="col text-center">
+                <h1 class="text-center">More About Me</h1>
+                <img class="album-carousel" src="assets/images/albums/because-the-internet.gif"
+                     alt="Pictures of albums the author likes" title="Pictures of albums the author likes">
+                <figcaption>
+                    Some albums I like
+                </figcaption>
+            </figure>
+            <article class="col">
+                <h2>
+                    Hobbies
+                </h2>
+                <p>
+                    I revel in listening to music, and listen to many artists and genres. I also play the violin. I am
+                    learning Wieniawski's Violin Concerto No. 2. I have worked on Mendelssohn's violin concerto and
+                    Mozart's Violin Concerto no. 5.
+                </p>
+            </article>
+            <article class="col">
+                <h2>
+                    Education
+                </h2>
+                <p>
+                    I am a junior in high school. Current and previous classes include AP Bio, World, Calc AB, Calc BC,
+                    USH, Lit, and Psych. Next year I plan on taking AP Lang, Stats, Physics, Spanish, Econ, Computer
+                    Science, and Gov. I have a 1570 SAT.
+                </p>
+            </article>
+        </div>
+    </section>
+    <section id="footer" class="is-center">
+        <nav class="nav col-6-lg col-10-md col-12-sm">
+            <div class="nav-center">
+                <a href="#top">Top</a>
+                <a href="#about">About</a>
+                <a href="#cat">Cat</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#me">Me</a>
+            </div>
+        </nav>
+    </section>
+</main>
+</body>
+</html>
